@@ -18,6 +18,8 @@ export default function RootLayout({
     <html lang="pt-br">
       <body>
         {children}
+        <p>test</p>
+        <p>test2</p>
       </body>
     </html>
   );
