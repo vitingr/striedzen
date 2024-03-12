@@ -75,11 +75,11 @@ const Navbar = () => {
             />
           </div>
 
-          <div className="hidden lg:flex gap-4 text-slate-500 text-3xl">
+          <div className="hidden lg:flex gap-4 text-slate-500 text-3xl items-center">
             <BiUser size={24} className="gray-icon cursor-pointer" />
             <div className="relative">
               <FiHeart size={24} className="gray-icon cursor-pointer" />
-              <div className="bg-accent rounded-full absolute top-0 right-0 w-4 h-4 text-xs text-white grid place-items-center translate-x-1 translate-y-1">
+              <div className="cursor-pointer bg-accent rounded-full absolute top-0 right-0 w-4 h-4 text-xs text-white grid place-items-center translate-x-1 translate-y-1">
                 0
               </div>
             </div>
@@ -88,7 +88,7 @@ const Navbar = () => {
                 size={25}
                 className="gray-icon cursor-pointer"
               />
-              <div className="bg-accent rounded-full absolute top-0 right-0 w-4 h-4 text-xs text-white grid place-items-center translate-x-1 translate-y-1">
+              <div className="cursor-pointer bg-accent rounded-full absolute top-0 right-0 w-4 h-4 text-xs text-white grid place-items-center translate-x-1 translate-y-1">
                 0
               </div>
             </div>
