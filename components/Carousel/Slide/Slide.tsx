@@ -4,8 +4,8 @@ import React from "react";
 
 const Slide = ({ image, title, mainTitle, price }: SlideProps) => {
   return (
-    <div className="outline-none border-none relative py-12">
-      <div className="absolute flex flex-col left-[30px] md:left-[70px] max-w-[250px] sm:max-w-[350px] top-[50%] -translate-y-[50%] gap-y-2 lg:gap-y-4 bg-[#ffffffa2] sm:bg-transparent p-4 sm:p-0 rounded-sm">
+    <div className="outline-none border-none flex flex-col items-center relative py-12">
+      <div className="absolute items-center flex flex-col left-[30px] md:left-[70px] max-w-[250px] sm:max-w-[350px] top-[50%] -translate-y-[50%] gap-y-2 lg:gap-y-4 bg-[#ffffffa2] sm:bg-transparent p-4 sm:p-0 rounded-sm">
         {/* <h3 className="text-accent text-[24px] lg:text-3xl">{title}</h3>
         <h2 className="text-blackish text-2xl md:text-3xl lg:text-4xl font-bold">
           {mainTitle}
@@ -18,7 +18,13 @@ const Slide = ({ image, title, mainTitle, price }: SlideProps) => {
           Comprar
         </div> */}
       </div>
-      <Image src={image} alt="Image Slide" width={2000} height={2000} className="rounded-sm selection:bg-transparent object-cover" />
+      <Image
+        src={image}
+        alt="Image Slide"
+        width={800}
+        height={800}
+        className="rounded-sm selection:bg-transparent object-cover"
+      />
     </div>
   );
 };

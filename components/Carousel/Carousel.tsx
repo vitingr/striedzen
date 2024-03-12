@@ -26,12 +26,13 @@ const Carousel = ({
     slidesToScroll: slidesToScroll,
     autoplay: autoplay,
     pauseOnHover: true,
+
   };
 
   return (
     <div>
       <div className="container pt-6 lg:pt-0">
-        <Slider {...settings}>
+        <Slider className="max-h-[800px] w-full justify-center items-center" {...settings}>
           {SLIDE_DATA.map((item: SlideProps, index: number) => (
             <Slide
               key={`slide_item_${index}`}
