@@ -16,11 +16,11 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const isPublic = checkIsPublicRoute(path);
 
   const [cookiesData, setCookiesData] = useState<any>([]);
-  const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState<any>([]);
 
   const getSessionInfo = async () => {
     try {
-      const requisition = await fetch("/api/getUserInfo");
+      const requisition = await fetch("/api/getCookies");
       const response = await requisition.json();
       setCookiesData(response);
     } catch (error) {
@@ -30,11 +30,38 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
   const getUserInfo = async () => {
     try {
-      console.log("Função a ser feita aqui");
+      await fetch("/api/user/getUserInfo").then(async (requisition) => {
+        const response = await requisition.json()
+        setUserData(response)
+      }).catch(async (error) => {
+         await createUser()
+      })
     } catch (error) {
       throw new Error("Não foi possível encontrar esse usuário");
     }
   };
+
+  const createUser = async () => {
+    try {
+      const response = await fetch("/api/user/createUser", {
+        method: "POST",
+        body: JSON.stringify({
+          name: `${cookiesData.firstName} ${cookiesData.lastName}`,
+          image: cookiesData.imageUrl,
+          email: cookiesData.emailAddresses[0].emailAddress,
+          uuid: cookiesData.id
+        })
+      })
+
+      if (response.ok) {
+        setUserData(response)
+      } else {
+        throw new Error("Não foi possível cadastrar esse usuário");
+      }
+    } catch (error) {
+      throw new Error("Não foi possível criar um novo usuário")
+    }
+  }
 
   const getSession = async () => {
     await getSessionInfo();

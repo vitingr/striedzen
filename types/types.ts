@@ -35,3 +35,17 @@ export interface ProductProps {
   price: number
   brand: string
 }
+
+export interface DoughnutProps {
+  chartData: any;
+}
+
+export interface LineChartProps {
+  chartData: any;
+  chartOptions: any
+}
+
+export interface RadarChartProps {
+  chartData: any;
+  chartOptions: any
+}

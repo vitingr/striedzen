@@ -1,6 +1,6 @@
 import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata } from "next";
-import "../../styles/globals.scss"
+import "../../styles/styles.scss"
 
 export const metadata: Metadata = {
   title: "Striedzen",

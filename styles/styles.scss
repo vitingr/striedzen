@@ -7,10 +7,14 @@
 * {
   margin: 0;
   padding: 0;
-  color: #333;
+  color: var(--font-color);
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   font-style: normal;
+}
+
+:root {
+  --font-color: #333;
 }
 
 .gray-icon * {
@@ -149,13 +153,40 @@
 @keyframes shadow324 {
 
   0%,
-    100% {
+  100% {
     transform: scale(1, 1);
   }
 
   50% {
     transform: scale(1.2, 1);
   }
+}
+
+.popup-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+}
+
+.glassmorphism {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  box-shadow: 0 0px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.cl-internal-1h80eck * {
+  color: white;
 }
 
 @layer components {
