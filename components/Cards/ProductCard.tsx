@@ -6,7 +6,7 @@ import { FaStar } from "react-icons/fa";
 
 const ProductCard = ({ product }: { product: ProductProps }) => {
   return (
-    <div className="rounded-md bg-slate-50 px-4 py-8 flex flex-col w-full">
+    <div className="rounded-md bg-slate-50 px-4 py-6 flex flex-col w-full transition-all duration-500 cursor-pointer hover:scale-[1.02] ease">
       <div className="flex w-full justify-between items-center">
         <div className="bg-rose-50 text-red-400 rounded-xl text-xs px-2 py-1 font-bold uppercase">
           new
@@ -17,9 +17,16 @@ const ProductCard = ({ product }: { product: ProductProps }) => {
         <Image
           alt="Product Image"
           src={product.image}
-          width={200}
-          height={200}
-          className="object-contain"
+          width={150}
+          height={150}
+          className="object-contain lg:flex hidden selection:bg-transparent"
+        />
+        <Image
+          alt="Product Image"
+          src={product.image}
+          width={120}
+          height={120}
+          className="object-contain lg:hidden flex selection:bg-transparent"
         />
       </picture>
       <article className="mt-4">

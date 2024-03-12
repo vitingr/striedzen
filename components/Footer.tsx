@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="absolute w-full">
       <div className="border-zinc-100 border-t-2 min-h-[360px] flex w-full pt-16 flex-col sm:flex-row">
         <div className="w-full xs:mb-12 flex flex-col items-center xs:justify-center">
-          <h1 className="font-extrabold text-3xl w-full flex justify-center text-white">
+          <h1 className="font-extrabold text-3xl w-full flex justify-center text-slate-700 tracking-widest">
           Striedezënn
           </h1>
           <p className="text-slate-700 mt-2">Projeto IFSP</p>
