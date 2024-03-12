@@ -3,6 +3,7 @@ import ProductCard from "@/components/Cards/ProductCard";
 import Footer from "@/components/Footer";
 import HomeListNavbar from "@/components/HomeListNavbar";
 import Navbar from "@/components/Navbar";
+import SeeMore from "@/components/SeeMore";
 import { ProductProps } from "@/types/types";
 import { getProductsData } from "@/utils/getProducts";
 import Image from "next/image";
@@ -65,6 +66,7 @@ export default async function Home() {
               <ProductCard product={product} key={`product_card_${index}`} />
             ))}
           </div>
+          <SeeMore link="/catalogo" />
         </section>
 
         <section className="bg-rose-50 lg:rounded-md mx-auto lg:py-20 py-12 max-w-6xl w-full flex flex-col items-center lg:px-12 px-4">
@@ -96,6 +98,7 @@ export default async function Home() {
                 <ProductCard product={product} key={`product_card_${index}`} />
               ))}
           </div>
+          <SeeMore link="/catalogo" />
         </section>
 
         <section
@@ -136,6 +139,7 @@ export default async function Home() {
                 <ProductCard product={product} key={`product_card_${index}`} />
               ))}
           </div>
+          <SeeMore link="/catalogo" />
         </section>
 
         <section className="mx-auto max-w-6xl w-full flex flex-col items-center lg:py-20 py-12 lg:px-12 px-4">
@@ -227,7 +231,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-6xl w-full flex flex-col items-center lg:py-20 py-12 lg:px-12 px-4">
+        <section className=" mx-auto max-w-6xl w-full flex flex-col items-center lg:py-20 py-12 lg:px-12 px-4">
           <div className="w-full flex flex-col items-center gap-y-2">
             <h2 className="text-center lg:text-3xl text-2xl font-semibold">
               Procurando algo mais?

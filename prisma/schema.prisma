@@ -18,6 +18,7 @@ model User {
   uuid      String   @unique
   name      String
   email     String   @unique
+  image     String   @default("https://api-private.atlassian.com/users/df3e141d46b7dca4d22cb10a4910d555/avatar")
   favorites String[]
   cart      String[]
   purchases String[]
