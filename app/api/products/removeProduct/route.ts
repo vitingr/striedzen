@@ -1,7 +1,7 @@
 import { getInterface } from "@/types/types";
 import { prisma } from "@/hooks/prisma";
 
-export const GET = async ({ params }: getInterface) => {
+export const POST = async ({ params }: getInterface) => {
   try {
     await prisma.sliper
       .delete({

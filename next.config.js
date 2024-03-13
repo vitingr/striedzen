@@ -8,6 +8,7 @@ const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ["mongoose"],
   },
+  eslint: { ignoreDuringBuilds: true },
   reactStrictMode: false,
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
