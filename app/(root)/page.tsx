@@ -23,7 +23,7 @@ export default async function Home() {
         <section className="w-full max-w-6xl flex lg:flex-nowrap flex-wrap justify-between lg:py-20 py-12 lg:px-12 px-4">
           <div className="w-full flex justify-center items-center">
             <article className="flex flex-col lg:items-start items-center gap-y-2">
-              <span className="text-sm lg:text-base text-accent">
+              <span className="text-sm lg:text-left w-full text-center lg:text-base text-accent">
                 Coleção de Fevereiro
               </span>
               <h1 className="text-center lg:text-left lg:text-6xl text-4xl font-semibold">
@@ -155,7 +155,7 @@ export default async function Home() {
 
             <div className="mt-20 flex flex-wrap lg:flex-nowrap justify-between w-full gap-12">
               <article className="w-full">
-              <span className="text-accent text-sm text-center lg:text-left">
+              <span className="text-accent text-sm  w-full text-center lg:text-left">
                  Fundação
                 </span>
                 <h3 className="font-semibold text-xl text-center lg:text-left">
@@ -199,7 +199,7 @@ export default async function Home() {
                 />
               </picture>
               <article className="w-full">
-              <span className="text-accent text-sm text-center lg:text-left">
+              <span className="text-accent w-full text-sm text-center lg:text-left">
                  Cultura e Valores
                 </span>
                 <h3 className="font-semibold text-xl text-center lg:text-left">
