@@ -2,7 +2,6 @@
   "version": 2,
   "builds": [
     {
-      "postinstall": "prisma generate",
       "env": {
         "DATABASE_URL": "mongodb+srv://vitorgabrielsbo1460:xXzMW9c0UljiQykk@aprendendo.cmdbthe.mongodb.net/striedzen?retryWrites=true&w=majority"
       },
