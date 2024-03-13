@@ -49,3 +49,11 @@ export interface RadarChartProps {
   chartData: any;
   chartOptions: any
 }
+
+export interface PopupProps {
+  children: React.ReactNode;
+  title: string;
+  description?: string;
+  state?: any;
+  handleSubmit?: () => void;
+}
