@@ -6,7 +6,7 @@ const Popup = ({
   children,
   title,
   description,
-  state,
+  showState,
   handleSubmit,
 }: PopupProps) => {
   return (
@@ -20,7 +20,7 @@ const Popup = ({
                 size={25}
                 className="cursor-pointer"
                 onClick={() => {
-                  state(false);
+                  showState(false);
                   handleSubmit();
                 }}
               />
@@ -29,12 +29,14 @@ const Popup = ({
                 size={25}
                 className="cursor-pointer"
                 onClick={async () => {
-                  await state(false);
+                  await showState(false);
                 }}
               />
             )}
           </div>
-          {description && <p className="text-[#717171] mt-2 mb-6">{description}</p>}
+          {description && (
+            <p className="text-[#717171] mt-2 mb-6">{description}</p>
+          )}
           <div>{children}</div>
         </div>
       </div>

@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
+import Popup from "../BasePopup/Popup";
 
-const EditPopup = () => {
+const EditPopup = ({ showState }: { showState: any }) => {
   return (
-    <div>EditPopup</div>
-  )
-}
+    <Popup
+      title="Editar Produto"
+      description="Edite os produtos para atrair novos clientes e valorizar o produto"
+      showState={showState}
+    >
+      <form
+        onSubmit={(e: React.SyntheticEvent) => {
+          e.preventDefault();
+        }}
+      ></form>
+    </Popup>
+  );
+};
 
-export default EditPopup
+export default EditPopup;

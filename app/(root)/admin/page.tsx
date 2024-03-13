@@ -8,9 +8,18 @@ import { IoCreateOutline } from "react-icons/io5";
 import { IoMdAdd } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import { ADMIN_CARDS } from "@/constants/admin";
+import RemovePopup from "@/components/Popups/RemoveProduct/RemovePopup";
+import CreatePopup from "@/components/Popups/CreateProduct/CreatePopup";
+import EditPopup from "@/components/Popups/EditProduct/EditPopup";
 
 const page = () => {
   const [showCreateProductForm, setShowCreateProductForm] =
+    useState<boolean>(false);
+
+  const [showEditProductForm, setShowEditProductForm] =
+    useState<boolean>(false);
+
+  const [showRemoveProductForm, setShowRemoveProductForm] =
     useState<boolean>(false);
 
   return (
@@ -56,20 +65,54 @@ const page = () => {
           </ul>
           <div className="w-full flex flex-col">
             <div className="w-full flex gap-x-4">
-              {ADMIN_CARDS.map((card, index: number) => (
-                <div className="bg-slate-700 text-xs rounded-full px-6 py-1 text-white cursor-pointer" key={`admin_card_${index}`}>teste</div>
-              ))}
+              <div
+                className="bg-slate-700 text-xs rounded-full px-6 py-1 text-white cursor-pointer"
+                onClick={() => setShowCreateProductForm(!showCreateProductForm)}
+              >
+                Adicionar Produto
+              </div>
+              {showCreateProductForm ? (
+                <CreatePopup showState={setShowCreateProductForm} />
+              ) : null}
+              <div
+                className="bg-slate-700 text-xs rounded-full px-6 py-1 text-white cursor-pointer"
+                onClick={() => setShowEditProductForm(!showEditProductForm)}
+              >
+                Editar Produto
+              </div>
+              {showEditProductForm ? (
+                <EditPopup showState={setShowEditProductForm} />
+              ) : null}
+              <div
+                className="bg-slate-700 text-xs rounded-full px-6 py-1 text-white cursor-pointer"
+                onClick={() => setShowRemoveProductForm(!showRemoveProductForm)}
+              >
+                Remover Produto
+              </div>
+              {showRemoveProductForm ? (
+                <RemovePopup showState={setShowRemoveProductForm} />
+              ) : null}
             </div>
             <ul className="mt-8 w-full flex flex-col rounded-lg bg-zinc-50">
-              <li className="w-full text-sm px-6 py-2 border-b border-zinc-100">item</li>
-              <li className="w-full text-sm px-6 py-2 border-b border-zinc-100">item</li>
-              <li className="w-full text-sm px-6 py-2 border-b border-zinc-100">item</li>
-              <li className="w-full text-sm px-6 py-2 border-b border-zinc-100">item</li>
-              <li className="w-full text-sm px-6 py-2 border-b border-zinc-100">item</li>
+              <li className="w-full text-sm px-6 py-2 border-b border-zinc-100">
+                item
+              </li>
+              <li className="w-full text-sm px-6 py-2 border-b border-zinc-100">
+                item
+              </li>
+              <li className="w-full text-sm px-6 py-2 border-b border-zinc-100">
+                item
+              </li>
+              <li className="w-full text-sm px-6 py-2 border-b border-zinc-100">
+                item
+              </li>
+              <li className="w-full text-sm px-6 py-2 border-b border-zinc-100">
+                item
+              </li>
             </ul>
           </div>
         </section>
-      </main>  
+      </main>
       <Footer />
     </>
   );

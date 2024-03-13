@@ -54,6 +54,6 @@ export interface PopupProps {
   children: React.ReactNode;
   title: string;
   description?: string;
-  state?: any;
+  showState?: any;
   handleSubmit?: () => void;
 }
