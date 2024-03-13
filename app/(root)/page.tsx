@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import HomeListNavbar from "@/components/HomeListNavbar";
 import Navbar from "@/components/Navbar";
 import SeeMore from "@/components/SeeMore";
+import { PRODUCTS_DATA } from "@/constants/products-data";
 import { ProductProps } from "@/types/types";
 import { getProductsData } from "@/utils/getProducts";
 import Image from "next/image";
@@ -11,7 +12,8 @@ import Link from "next/link";
 import { BsSearch } from "react-icons/bs";
 
 export default async function Home() {
-  const productData = await getProductsData();
+  // const productData = await getProductsData();
+  const productData = PRODUCTS_DATA 
 
   return (
     <>
