@@ -30,8 +30,9 @@ export interface ButtonProps {
 
 export interface ProductProps {
   image: string
+  description: string
   title: string
-  subtitle: string
+  subtitle?: string
   price: number
   brand: string
 }
