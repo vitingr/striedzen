@@ -32,7 +32,7 @@ model Sliper {
   brand       String
   price       Float
   discount    Int?
-  image       String
+  image       String? @default("https://2.bp.blogspot.com/-XRxzzskvstk/URD8nlt53PI/AAAAAAAAAgI/eB_eXC2fLW8/s1600/chinelo_3.png")
   likes       String[]
   slug        String?
   units       Int      @default(10)

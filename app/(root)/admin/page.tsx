@@ -2,7 +2,7 @@
 
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TbDeviceDesktopAnalytics } from "react-icons/tb";
 import { IoCreateOutline } from "react-icons/io5";
 import { IoMdAdd } from "react-icons/io";
@@ -11,8 +11,13 @@ import { ADMIN_CARDS } from "@/constants/admin";
 import RemovePopup from "@/components/Popups/RemoveProduct/RemovePopup";
 import CreatePopup from "@/components/Popups/CreateProduct/CreatePopup";
 import EditPopup from "@/components/Popups/EditProduct/EditPopup";
+import { getProductsData } from "@/utils/getProducts";
+import { ProductProps } from "@/types/types";
+import { formatCurrency } from "@/utils/functions/formatCurrency";
 
 const page = () => {
+  const [products, setProducts] = useState<ProductProps[]>([])
+
   const [showCreateProductForm, setShowCreateProductForm] =
     useState<boolean>(false);
 
@@ -22,7 +27,18 @@ const page = () => {
   const [showRemoveProductForm, setShowRemoveProductForm] =
     useState<boolean>(false);
 
-  return (
+  const fetchProductsData = async () => {
+    const response = await getProductsData()
+    if (response) {
+      setProducts(response)
+    }
+  }
+
+  useEffect(() => {
+    fetchProductsData()
+  }, [])
+
+  return products.length > 0 ? (
     <>
       <Navbar />
       <main className="min-h-[62vh] w-full lg:py-20 py-32 flex flex-col items-center">
@@ -72,7 +88,7 @@ const page = () => {
                 Adicionar Produto
               </div>
               {showCreateProductForm ? (
-                <CreatePopup showState={setShowCreateProductForm} />
+                <CreatePopup showState={setShowCreateProductForm} handleFunction={fetchProductsData} />
               ) : null}
               <div
                 className="bg-slate-700 text-xs rounded-full px-6 py-1 text-white cursor-pointer"
@@ -93,29 +109,22 @@ const page = () => {
                 <RemovePopup showState={setShowRemoveProductForm} />
               ) : null}
             </div>
-            <ul className="mt-8 w-full flex flex-col rounded-lg bg-zinc-50">
-              <li className="w-full text-sm px-6 py-2 border-b border-zinc-100">
-                item
-              </li>
-              <li className="w-full text-sm px-6 py-2 border-b border-zinc-100">
-                item
-              </li>
-              <li className="w-full text-sm px-6 py-2 border-b border-zinc-100">
-                item
-              </li>
-              <li className="w-full text-sm px-6 py-2 border-b border-zinc-100">
-                item
-              </li>
-              <li className="w-full text-sm px-6 py-2 border-b border-zinc-100">
-                item
-              </li>
-            </ul>
+            <div className="mt-8 w-full flex flex-col rounded-lg">
+              {products?.map((item: ProductProps, index: number) => (
+                <div className="w-full flex flex-between items-center gap-x-4 text-sm py-3 border-b border-zinc-100" key={`product_card_${index}`}>
+                  <div className="max-w-4 h-4 w-full border border-slate-300 rounded-sm cursor-pointer" />
+                  <h3 className="w-full max-w-[140px]">{item.title}</h3>
+                  <span className="w-full max-w-[140px] font-semibold">{formatCurrency(item.price)}</span>
+                  <span className="w-full max-w-[180px]">{item.price} unidades restantes</span>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </main>
       <Footer />
     </>
-  );
+  ) : null
 };
 
 export default page;
