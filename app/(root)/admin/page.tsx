@@ -7,16 +7,15 @@ import { TbDeviceDesktopAnalytics } from "react-icons/tb";
 import { IoCreateOutline } from "react-icons/io5";
 import { IoMdAdd } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
-import { ADMIN_CARDS } from "@/constants/admin";
 import RemovePopup from "@/components/Popups/RemoveProduct/RemovePopup";
 import CreatePopup from "@/components/Popups/CreateProduct/CreatePopup";
 import EditPopup from "@/components/Popups/EditProduct/EditPopup";
 import { getProductsData } from "@/utils/getProducts";
 import { ProductProps } from "@/types/types";
-import { formatCurrency } from "@/utils/functions/formatCurrency";
+import AdminProductCard from "@/components/Cards/AdminProductCard/AdminProductCard";
 
 const page = () => {
-  const [products, setProducts] = useState<ProductProps[]>([])
+  const [products, setProducts] = useState<ProductProps[]>([]);
 
   const [showCreateProductForm, setShowCreateProductForm] =
     useState<boolean>(false);
@@ -28,21 +27,21 @@ const page = () => {
     useState<boolean>(false);
 
   const fetchProductsData = async () => {
-    const response = await getProductsData()
+    const response = await getProductsData();
     if (response) {
-      setProducts(response)
+      setProducts(response);
     }
-  }
+  };
 
   useEffect(() => {
-    fetchProductsData()
-  }, [])
+    fetchProductsData();
+  }, []);
 
   return products.length > 0 ? (
     <>
       <Navbar />
       <main className="min-h-[62vh] w-full lg:py-20 py-32 flex flex-col items-center">
-        <section className="w-full container gap-12 flex lg:flex-nowrap flex-wrap justify-between lg:py-24 py-12 ">
+        <section className="w-full px-4 lg:px-12 gap-12 flex lg:flex-nowrap flex-wrap justify-between lg:py-24 py-12 ">
           <ul className="w-full max-w-xs bg-zinc-100 rounded-md px-6 py-8">
             <h2 className="font-semibold text-xl text-slate-700">
               Menu do Admin
@@ -88,7 +87,11 @@ const page = () => {
                 Adicionar Produto
               </div>
               {showCreateProductForm ? (
-                <CreatePopup showState={setShowCreateProductForm} handleFunction={fetchProductsData} />
+                <CreatePopup
+                  setShowState={setShowCreateProductForm}
+                  showState={showCreateProductForm}
+                  handleFunction={fetchProductsData}
+                />
               ) : null}
               <div
                 className="bg-slate-700 text-xs rounded-full px-6 py-1 text-white cursor-pointer"
@@ -97,7 +100,10 @@ const page = () => {
                 Editar Produto
               </div>
               {showEditProductForm ? (
-                <EditPopup showState={setShowEditProductForm} />
+                <EditPopup
+                  setShowState={setShowEditProductForm}
+                  showState={showEditProductForm}
+                />
               ) : null}
               <div
                 className="bg-slate-700 text-xs rounded-full px-6 py-1 text-white cursor-pointer"
@@ -106,17 +112,15 @@ const page = () => {
                 Remover Produto
               </div>
               {showRemoveProductForm ? (
-                <RemovePopup showState={setShowRemoveProductForm} />
+                <RemovePopup
+                  setShowState={setShowRemoveProductForm}
+                  showState={showRemoveProductForm}
+                />
               ) : null}
             </div>
             <div className="mt-8 w-full flex flex-col rounded-lg">
               {products?.map((item: ProductProps, index: number) => (
-                <div className="w-full flex flex-between items-center gap-x-4 text-sm py-3 border-b border-zinc-100" key={`product_card_${index}`}>
-                  <div className="max-w-4 h-4 w-full border border-slate-300 rounded-sm cursor-pointer" />
-                  <h3 className="w-full max-w-[140px]">{item.title}</h3>
-                  <span className="w-full max-w-[140px] font-semibold">{formatCurrency(item.price)}</span>
-                  <span className="w-full max-w-[180px]">{item.price} unidades restantes</span>
-                </div>
+                <AdminProductCard item={item} key={`product_card_${index}`} />
               ))}
             </div>
           </div>
@@ -124,7 +128,7 @@ const page = () => {
       </main>
       <Footer />
     </>
-  ) : null
+  ) : null;
 };
 
 export default page;

@@ -5,11 +5,19 @@ import Popup from "../BasePopup/Popup";
 import { ProductProps } from "@/types/types";
 import ToastMessage from "@/components/ToastMessage";
 import { toast } from "react-toastify";
+import { formatCurrency } from "@/utils/functions/formatCurrency";
 
-const CreatePopup = ({ showState, handleFunction }: { showState: any, handleFunction: any }) => {
+interface CreatePopupProps {
+  handleFunction: any
+  showState: any;
+  setShowState: any
+}
+
+const CreatePopup = ({ showState, setShowState, handleFunction }: CreatePopupProps) => {
   const [productData, setProductData] = useState<ProductProps>({
     image: "",
     title: "",
+    subtitle: "",
     description: "",
     price: 0,
     brand: ""
@@ -44,6 +52,7 @@ const CreatePopup = ({ showState, handleFunction }: { showState: any, handleFunc
       title="Adicionar Produto"
       description="Edite os produtos para atrair novos clientes e valorizar o produto"
       showState={showState}
+      setShowState={setShowState}
     >
       <ToastMessage />
       <form
@@ -99,7 +108,7 @@ const CreatePopup = ({ showState, handleFunction }: { showState: any, handleFunc
             type="number"
             name="price"
             id="price"
-            placeholder="Digite o nome do produto"
+            placeholder="Informe o preço do produto"
             autoComplete="off"
             spellCheck={false}
             minLength={4}
