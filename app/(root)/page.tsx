@@ -1,5 +1,5 @@
 import CtaButton from "@/components/Buttons/CtaButton";
-import ProductCard from "@/components/Cards/ProductCard";
+import ProductCard from "@/components/Cards/ProductCard/ProductCard";
 import Footer from "@/components/Footer";
 import HomeListNavbar from "@/components/HomeListNavbar";
 import Navbar from "@/components/Navbar";
@@ -13,7 +13,7 @@ import { BsSearch } from "react-icons/bs";
 
 export default async function Home() {
   // const productData = await getProductsData();
-  const productData = PRODUCTS_DATA 
+  const productData = PRODUCTS_DATA;
 
   return (
     <>
@@ -64,7 +64,7 @@ export default async function Home() {
             Confira abaixo os nossos produtos em alta e do momento
           </p>
           <div className="gap-12 grid lg:grid-cols-3 max-w-5xl items-center w-full mt-12">
-            {productData?.map((product: ProductProps, index: number) => (
+            {productData?.map((product: ProductProps | any, index: number) => (
               <ProductCard product={product} key={`product_card_${index}`} />
             ))}
           </div>
@@ -96,7 +96,7 @@ export default async function Home() {
           <div className="gap-12 grid lg:grid-cols-3 max-w-5xl items-center w-full mt-12">
             {productData
               ?.slice(0, 3)
-              .map((product: ProductProps, index: number) => (
+              .map((product: ProductProps | any, index: number) => (
                 <ProductCard product={product} key={`product_card_${index}`} />
               ))}
           </div>
@@ -137,7 +137,7 @@ export default async function Home() {
           <div className="gap-12 grid lg:grid-cols-3 max-w-5xl items-center w-full mt-12">
             {productData
               ?.slice(0, 3)
-              .map((product: ProductProps, index: number) => (
+              .map((product: ProductProps | any, index: number) => (
                 <ProductCard product={product} key={`product_card_${index}`} />
               ))}
           </div>
@@ -155,8 +155,8 @@ export default async function Home() {
 
             <div className="mt-20 flex flex-wrap lg:flex-nowrap justify-between w-full gap-12">
               <article className="w-full">
-              <span className="text-accent text-sm  w-full text-center lg:text-left">
-                 Fundação
+                <span className="text-accent text-sm  w-full text-center lg:text-left">
+                  Fundação
                 </span>
                 <h3 className="font-semibold text-xl text-center lg:text-left">
                   Fundada para o Projeto IFSP
@@ -199,8 +199,8 @@ export default async function Home() {
                 />
               </picture>
               <article className="w-full">
-              <span className="text-accent w-full text-sm text-center lg:text-left">
-                 Cultura e Valores
+                <span className="text-accent w-full text-sm text-center lg:text-left">
+                  Cultura e Valores
                 </span>
                 <h3 className="font-semibold text-xl text-center lg:text-left">
                   Fundada para o Projeto IFSP
