@@ -5,6 +5,7 @@ import { BiUser } from "react-icons/bi";
 import { FiHeart } from "react-icons/fi";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { UserButton } from "@clerk/nextjs";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -28,7 +29,7 @@ const Navbar = () => {
             </div>
 
             <div className="text-slate-500 text-[12px]">
-              <b>FRETE GRATUITO</b> SOMENTE COM PEDIDOS ACIMA DE - $55
+              <b>FRETE GRATUITO</b> SOMENTE COM PEDIDOS ACIMA DE - $1
             </div>
 
             <div className="flex gap-4">
@@ -56,9 +57,12 @@ const Navbar = () => {
       </div>
       <div className="w-full border-b border-gray-200 py-6">
         <div className="container gap-x-12 sm:flex justify-between items-center">
-          <div className="font-bold text-4xl text-center pb-4 sm:pb-0 text-blackish">
+          <Link
+            href="/catalogo"
+            className="font-bold text-4xl text-center pb-4 sm:pb-0 text-blackish"
+          >
             Striedezënn
-          </div>
+          </Link>
           <div className="w-full sm:max-w-[300px] md:max-w-[70%] relative">
             <input
               type="text"

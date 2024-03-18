@@ -7,12 +7,13 @@ const Popup = ({
   title,
   description,
   showState,
+  setShowState,
   handleSubmit,
 }: PopupProps) => {
-  return (
+  return showState ? (
     <div className="popup-wrapper z-[999] sm:mt-0 sm-[75px]">
       <div className="glassmorphism">
-        <div className="max-w-[800px] w-full p-10 bg-white rounded-xl">
+        <div className="max-w-[700px] w-full p-10 bg-white rounded-xl">
           <div className="flex justify-between items-center">
             <h1 className="w-full text-3xl font-bold">{title}</h1>
             {handleSubmit ? (
@@ -20,7 +21,7 @@ const Popup = ({
                 size={25}
                 className="cursor-pointer"
                 onClick={() => {
-                  showState(false);
+                  setShowState(false);
                   handleSubmit();
                 }}
               />
@@ -28,8 +29,8 @@ const Popup = ({
               <IoCloseOutline
                 size={25}
                 className="cursor-pointer"
-                onClick={async () => {
-                  await showState(false);
+                onClick={() => {
+                  setShowState(false);
                 }}
               />
             )}
@@ -41,7 +42,7 @@ const Popup = ({
         </div>
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default Popup;
