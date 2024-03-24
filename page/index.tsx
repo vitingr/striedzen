@@ -1,1 +1,1 @@
-apiKey=SECRETO
+teste=SECRETO
