@@ -19,7 +19,6 @@ export default async function Home() {
     <>
       <Navbar />
       <HomeListNavbar />
-      teste
       <main className="min-h-[62vh] w-full lg:py-20 py-32 flex flex-col items-center">
         <section className="w-full max-w-6xl flex lg:flex-nowrap flex-wrap justify-between lg:py-20 py-12 lg:px-12 px-4">
           <div className="w-full flex justify-center items-center">
